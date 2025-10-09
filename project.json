@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "14",
+  "repository_name": "servegate",
+  "title": "Servegate",
+  "package": "servegate",
+  "language": "go",
+  "field": "Backend and concurrent systems",
+  "focus": "Deadline-aware microbatching, fair admission, cancellation and circuit breaking",
+  "ai_connection": "Reliable inference-facing API infrastructure",
+  "smoke_commands": [
+    {
+      "name": "demo",
+      "args": []
+    },
+    {
+      "name": "evaluate",
+      "args": []
+    }
+  ],
+  "go_command": "./cmd/servegate",
+  "layout": {
+    "docs_root": "ops",
+    "tests_root": "gateway",
+    "tools_root": "hack",
+    "config_root": "loadtests",
+    "examples_root": "benchmarks",
+    "verifier": "hack/check_gateway.py",
+    "source_roots": [
+      "cmd",
+      "gateway",
+      "experiment"
+    ],
+    "documents": {
+      "architecture": "ops/request-path.md",
+      "design": "ops/admission-and-shutdown.md",
+      "review": "ops/race-checks.md",
+      "experiments": "ops/saturation-runs.md",
+      "publishing": "ops/distributing-gateway.md",
+      "validation": "ops/checked-binary.md"
+    }
+  }
+}

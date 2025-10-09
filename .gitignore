@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.ruff_cache/
+build/
+dist/
+artifacts/
+checkpoints/
+*.pt
+*.safetensors
+*.sqlite
+*.sqlite-*
+.env
+.env.*
+!.env.example
+
+# Local Go build products
+/servegate
+/servegate.exe
