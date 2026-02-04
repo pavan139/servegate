@@ -1,0 +1,107 @@
+{
+  "backend": "deterministic_sha256_cpu_fixture",
+  "model_calls": 0,
+  "passed": true,
+  "workload": {
+    "requests": 32,
+    "concurrent_clients": 8,
+    "sha256_rounds_per_input": 64,
+    "configured_max_batch": 8,
+    "successes": 32,
+    "errors": {},
+    "elapsed_ms": 8.216278,
+    "observed_fixture_requests_per_second": 3894.7075549293727,
+    "client_latency_all_attempts": {
+      "count": 32,
+      "p50_ms": 1.003075,
+      "p95_ms": 2.177795,
+      "p99_ms": 5.173492
+    },
+    "gateway": {
+      "accepted": 32,
+      "finished": 32,
+      "cancelled": 0,
+      "deadline_exceeded": 0,
+      "backend_calls": 4,
+      "retries": 0,
+      "batches": 4,
+      "peak_queued": 8,
+      "peak_active_batches": 1,
+      "queue_wait_micros_total": 13866,
+      "queue_wait_micros_max": 1364,
+      "rejected": {},
+      "batch_sizes": {
+        "8": 4
+      },
+      "trace": [
+        {
+          "batch_id": 1,
+          "tenants": [
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 2,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 3,
+          "tenants": [
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 4,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        }
+      ],
+      "trace_dropped": 0,
+      "queued": 0,
+      "active_batches": 0,
+      "outstanding": 0,
+      "draining": true,
+      "breaker": "closed"
+    },
+    "passed": true
+  }
+}
