@@ -1,0 +1,1574 @@
+{
+  "backend": "deterministic_sha256_cpu_fixture",
+  "cancellation": {
+    "cancelled_clients": 4,
+    "queue_cleanup_ms": 1.281004,
+    "gateway": {
+      "accepted": 5,
+      "finished": 5,
+      "cancelled": 4,
+      "deadline_exceeded": 0,
+      "backend_calls": 1,
+      "retries": 0,
+      "batches": 1,
+      "peak_queued": 4,
+      "peak_active_batches": 1,
+      "queue_wait_micros_total": 9,
+      "queue_wait_micros_max": 9,
+      "rejected": {},
+      "batch_sizes": {
+        "1": 1
+      },
+      "trace": [
+        {
+          "batch_id": 1,
+          "tenants": [
+            "tenant"
+          ],
+          "size": 1,
+          "flush": "full"
+        }
+      ],
+      "trace_dropped": 0,
+      "queued": 0,
+      "active_batches": 0,
+      "outstanding": 0,
+      "draining": true,
+      "breaker": "closed"
+    },
+    "passed": true
+  },
+  "fairness": {
+    "backlogged_service_order": [
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C"
+    ],
+    "gateway": {
+      "accepted": 16,
+      "finished": 16,
+      "cancelled": 0,
+      "deadline_exceeded": 0,
+      "backend_calls": 16,
+      "retries": 0,
+      "batches": 16,
+      "peak_queued": 15,
+      "peak_active_batches": 1,
+      "queue_wait_micros_total": 34590,
+      "queue_wait_micros_max": 3501,
+      "rejected": {},
+      "batch_sizes": {
+        "1": 16
+      },
+      "trace": [
+        {
+          "batch_id": 1,
+          "tenants": [
+            "warm"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 2,
+          "tenants": [
+            "A"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 3,
+          "tenants": [
+            "B"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 4,
+          "tenants": [
+            "C"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 5,
+          "tenants": [
+            "A"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 6,
+          "tenants": [
+            "B"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 7,
+          "tenants": [
+            "C"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 8,
+          "tenants": [
+            "A"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 9,
+          "tenants": [
+            "B"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 10,
+          "tenants": [
+            "C"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 11,
+          "tenants": [
+            "A"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 12,
+          "tenants": [
+            "B"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 13,
+          "tenants": [
+            "C"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 14,
+          "tenants": [
+            "A"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 15,
+          "tenants": [
+            "B"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 16,
+          "tenants": [
+            "C"
+          ],
+          "size": 1,
+          "flush": "full"
+        }
+      ],
+      "trace_dropped": 0,
+      "queued": 0,
+      "active_batches": 0,
+      "outstanding": 0,
+      "draining": true,
+      "breaker": "closed"
+    },
+    "passed": true
+  },
+  "go_version": "go1.25.1",
+  "gomaxprocs": 2,
+  "limitations": [
+    "CPU fixture processes inputs serially inside a batch; reduced backend-call count is not evidence of GPU/model speedup.",
+    "Observed timings are one local run including net/http, scheduling and SHA-256; no production throughput or tail-latency guarantee.",
+    "Tenant labels are caller-provided in this lab; identity authentication and external admission are not implemented.",
+    "Cancellation/deadlines require cooperative backend code; a blocked Go function cannot be forcibly killed."
+  ],
+  "microbatched": {
+    "requests": 128,
+    "concurrent_clients": 16,
+    "sha256_rounds_per_input": 256,
+    "configured_max_batch": 8,
+    "successes": 128,
+    "errors": {},
+    "elapsed_ms": 13.714178,
+    "observed_fixture_requests_per_second": 9333.406639464647,
+    "client_latency_all_attempts": {
+      "count": 128,
+      "p50_ms": 1.322254,
+      "p95_ms": 2.803463,
+      "p99_ms": 3.535672
+    },
+    "gateway": {
+      "accepted": 128,
+      "finished": 128,
+      "cancelled": 0,
+      "deadline_exceeded": 0,
+      "backend_calls": 16,
+      "retries": 0,
+      "batches": 16,
+      "peak_queued": 8,
+      "peak_active_batches": 2,
+      "queue_wait_micros_total": 37081,
+      "queue_wait_micros_max": 2083,
+      "rejected": {},
+      "batch_sizes": {
+        "8": 16
+      },
+      "trace": [
+        {
+          "batch_id": 1,
+          "tenants": [
+            "tenant0",
+            "tenant2",
+            "tenant3",
+            "tenant1",
+            "tenant0",
+            "tenant2",
+            "tenant3",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 2,
+          "tenants": [
+            "tenant2",
+            "tenant3",
+            "tenant0",
+            "tenant1",
+            "tenant2",
+            "tenant3",
+            "tenant0",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 3,
+          "tenants": [
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 4,
+          "tenants": [
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 5,
+          "tenants": [
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant3"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 6,
+          "tenants": [
+            "tenant0",
+            "tenant1",
+            "tenant2",
+            "tenant3",
+            "tenant0",
+            "tenant2",
+            "tenant3",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 7,
+          "tenants": [
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant3",
+            "tenant2",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 8,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 9,
+          "tenants": [
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 10,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 11,
+          "tenants": [
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 12,
+          "tenants": [
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 13,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 14,
+          "tenants": [
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0",
+            "tenant3",
+            "tenant2",
+            "tenant1",
+            "tenant0"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 15,
+          "tenants": [
+            "tenant0",
+            "tenant2",
+            "tenant3",
+            "tenant1",
+            "tenant0",
+            "tenant2",
+            "tenant3",
+            "tenant1"
+          ],
+          "size": 8,
+          "flush": "full"
+        },
+        {
+          "batch_id": 16,
+          "tenants": [
+            "tenant0",
+            "tenant1",
+            "tenant3",
+            "tenant2",
+            "tenant0",
+            "tenant1",
+            "tenant3",
+            "tenant2"
+          ],
+          "size": 8,
+          "flush": "full"
+        }
+      ],
+      "trace_dropped": 0,
+      "queued": 0,
+      "active_batches": 0,
+      "outstanding": 0,
+      "draining": true,
+      "breaker": "closed"
+    },
+    "passed": true
+  },
+  "model_calls": 0,
+  "passed": 4,
+  "total": 4,
+  "transport": "actual httptest loopback HTTP for load/cancellation; direct API for controlled fairness",
+  "unbatched": {
+    "requests": 128,
+    "concurrent_clients": 16,
+    "sha256_rounds_per_input": 256,
+    "configured_max_batch": 1,
+    "successes": 128,
+    "errors": {},
+    "elapsed_ms": 9.42881,
+    "observed_fixture_requests_per_second": 13575.41407664382,
+    "client_latency_all_attempts": {
+      "count": 128,
+      "p50_ms": 0.825531,
+      "p95_ms": 2.567874,
+      "p99_ms": 2.699362
+    },
+    "gateway": {
+      "accepted": 128,
+      "finished": 128,
+      "cancelled": 0,
+      "deadline_exceeded": 0,
+      "backend_calls": 128,
+      "retries": 0,
+      "batches": 128,
+      "peak_queued": 7,
+      "peak_active_batches": 2,
+      "queue_wait_micros_total": 3452,
+      "queue_wait_micros_max": 213,
+      "rejected": {},
+      "batch_sizes": {
+        "1": 128
+      },
+      "trace": [
+        {
+          "batch_id": 1,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 2,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 3,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 4,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 5,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 6,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 7,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 8,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 9,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 10,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 11,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 12,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 13,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 14,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 15,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 16,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 17,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 18,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 19,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 20,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 21,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 22,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 23,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 24,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 25,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 26,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 27,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 28,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 29,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 30,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 31,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 32,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 33,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 34,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 35,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 36,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 37,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 38,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 39,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 40,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 41,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 42,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 43,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 44,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 45,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 46,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 47,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 48,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 49,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 50,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 51,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 52,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 53,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 54,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 55,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 56,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 57,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 58,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 59,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 60,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 61,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 62,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 63,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 64,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 65,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 66,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 67,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 68,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 69,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 70,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 71,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 72,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 73,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 74,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 75,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 76,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 77,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 78,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 79,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 80,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 81,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 82,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 83,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 84,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 85,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 86,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 87,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 88,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 89,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 90,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 91,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 92,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 93,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 94,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 95,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 96,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 97,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 98,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 99,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 100,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 101,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 102,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 103,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 104,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 105,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 106,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 107,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 108,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 109,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 110,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 111,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 112,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 113,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 114,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 115,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 116,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 117,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 118,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 119,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 120,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 121,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 122,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 123,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 124,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 125,
+          "tenants": [
+            "tenant3"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 126,
+          "tenants": [
+            "tenant1"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 127,
+          "tenants": [
+            "tenant0"
+          ],
+          "size": 1,
+          "flush": "full"
+        },
+        {
+          "batch_id": 128,
+          "tenants": [
+            "tenant2"
+          ],
+          "size": 1,
+          "flush": "full"
+        }
+      ],
+      "trace_dropped": 0,
+      "queued": 0,
+      "active_batches": 0,
+      "outstanding": 0,
+      "draining": true,
+      "breaker": "closed"
+    },
+    "passed": true
+  }
+}
