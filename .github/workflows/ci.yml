@@ -1,0 +1,27 @@
+name: Gateway race checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25.1'
+          cache: false
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python hack/check_gateway.py --require-lint --wheel
+      # Artifact uploads are optional because storage quota exhaustion must not
+      # turn successful verification into a failed CI run. Set the repository
+      # variable UPLOAD_VERIFICATION_ARTIFACTS=true when quota is available.
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && vars.UPLOAD_VERIFICATION_ARTIFACTS == 'true' }}
+        with:
+          name: verification-go
+          path: reports/verification.json
