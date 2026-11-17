@@ -1,5 +1,9 @@
 # ServeGate
 
+[![ci](https://github.com/pavan139/servegate/actions/workflows/ci.yml/badge.svg)](https://github.com/pavan139/servegate/actions/workflows/ci.yml) ![license: MIT](https://img.shields.io/badge/license-MIT-blue)
+
+A gateway that sits in front of a model server, written in Go with only the standard library. It provides deadline-aware microbatching, fair per-tenant admission, cancellation and circuit breaking. The backend is deterministic CPU work, so the results describe the queue and the batching, not model throughput.
+
 Start the gateway, submit a request, then inspect what waited before the backend ran:
 
 ```sh
@@ -43,7 +47,7 @@ Defaults are batch size eight, two workers, 128 outstanding requests globally, 3
 
 ## Measure the queue, not an imagined model
 
-The saved [loopback run](benchmarks/evaluation.json) used the same 128 inputs, 16 clients and CPU work for both load variants. Batch size one made 128 backend calls; batch size eight made 16. In that run, elapsed time was 9.4288 ms versus 13.7142 ms. The batched run was slower despite fewer calls. Client errors and all attempted-request denominators remain in the JSON.
+The saved [loopback run](benchmarks/evaluation.json) used the same 128 inputs, 16 clients and CPU work for both load variants. Batch size one made 128 backend calls; batch size eight made 16. In that run, elapsed time was 9.4288 ms versus 13.7142 ms. The batched run was slower despite fewer calls. Timings this small vary between runs, and a rerun of `evaluate` can reverse their order; the call counts do not change. Client errors and all attempted-request denominators remain in the JSON.
 
 Controlled latch-backend runs also expose queued cancellation and a fifteen-request `A, B, C` service rotation. The [saturation notes](ops/saturation-runs.md) retain timings, latency quantiles, fairness scope and environment details.
 
